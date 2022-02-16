@@ -54,7 +54,9 @@ renv::install("readxl")
 renv::install("assertthat")
 usethis::use_package("assertthat", type = "Imports")
 renv::install("arrow")
+usethis::use_package("arrow", type = "Imports")
 renv::install("snakecase")
+usethis::use_package("snakecase", type = "Imports")
 
 # Tests -------------------------------------------------------------------
 
