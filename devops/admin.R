@@ -52,6 +52,7 @@ usethis::use_dev_package("pops", type = "Imports", remote = "rappster/pops")
 renv::install("dplyr")
 renv::install("readxl")
 renv::install("assertthat")
+usethis::use_package("assertthat", type = "Imports")
 renv::install("arrow")
 renv::install("snakecase")
 
