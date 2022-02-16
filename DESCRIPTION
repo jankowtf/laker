@@ -1,0 +1,22 @@
+Package: laker
+Type: Package
+Title: Local data lake framework
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Janko",
+           family = "Thyson",
+           role = c("aut", "cre"),
+           email = "janko@rappster.io")
+Maintainer: <janko@rappster.io>
+Description: A systematic approach to a local data lake framework
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Imports: 
+    lifecycle,
+    magrittr
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)

@@ -1,0 +1,16 @@
+default:
+    data_catalog: !expr Sys.getenv(
+        "DATA_CATALOG", fs::path_package(pops:::pkg_name(), "data_catalog.yml"))
+    data_catalog_version: !expr Sys.getenv(
+        "DATA_CATALOG_VERSION", "v2")
+    data_lake: !expr Sys.getenv(
+        "DATA_LAKE", here::here("data"))
+
+dev:
+    inherits: default
+
+staging:
+    inherits: dev
+
+prod:
+    inherits: staging

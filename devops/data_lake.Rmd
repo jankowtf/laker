@@ -1,0 +1,145 @@
+---
+title: "data_lake"
+output: 
+  rmarkdown::html_document:
+    theme: spacelab
+    toc: true
+    toc_float: true
+    number_sections: true
+vignette: >
+  %\VignetteIndexEntry{data_lake}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>"
+)
+```
+
+```{r setup}
+# library(dbt.def.core)
+devtools::load_all(here::here())
+# box::use(dl = R/data_lake)
+```
+
+# Resources
+
+- Data lake layers: https://lingarogroup.com/blog/data-lake-architecture/
+
+# Ingest (from `layer_01` = raw to `layer_02` = tidy)
+
+```{r}
+pops::get_options()
+```
+
+```{r}
+layer_ingest(
+    constructor = data_tableau_global_superstore
+)
+```
+
+# Read from `layer_02` layer
+
+```{r}
+superstore <- layer_read(
+    constructor = data_tableau_global_superstore,
+    layer = valid_data_layers("02")
+)
+
+superstore %>% class()
+```
+
+# Curate (from `layer_02` to `layer_03`)
+
+```{r}
+superstory_cura <- superstore %>% layer_curate()
+```
+
+# Read from `03_curated` layer
+
+```{r}
+superstore_cura <- layer_read(
+    constructor = data_tableau_global_superstore,
+    layer = valid_data_layers("03")
+)
+```
+
+# Inspect
+
+## Overview
+
+```{r}
+superstore_cura %>% dplyr::glimpse()
+```
+
+## Data table
+
+```{r}
+superstore_cura %>% 
+    dplyr::slice(1:1000) %>% 
+    DT::datatable()
+```
+
+```{r}
+superstore_cura %>% 
+    dplyr::slice(1:1000) %>% 
+    datatable_2()
+```
+
+```{r}
+library(synthpop)
+superstore_cura_syn <- superstore_cura %>% 
+    dplyr::mutate(
+        order_date = order_date %>% as.character(),
+        ship_date = ship_date %>% as.character()
+    ) %>% 
+    dplyr::sample_n(100) %>% 
+    synthpop::syn(maxfaclevels = 26000)
+iris_syn %>% attributes()
+iris_syn_tbl <- iris_syn$syn %>% tibble::as_tibble()
+```
+
+# Analysis
+
+## Frequency tables
+
+```{r eval=FALSE}
+superstore_cura %>% 
+    stats_freq_table(segment) %>% 
+    datatable_2()
+```
+
+```{r eval=TRUE}
+# Nicer names
+freq_tab <- superstore_cura %>% stats_freq_table(segment)
+names(freq_tab)[2:length(names(freq_tab))] <- c("Anzahl", "Prozent", "Prozent inkl. N/A")
+
+freq_tab %>% datatable_2()
+```
+
+## Plots
+
+### Barplot
+
+```{r}
+superstore_cura %>% 
+    plot_bar_plotly(
+        col_x = market,
+        col_y = sales,
+        title = "Verteilung der Märkte"
+    )
+```
+
+### Histogram
+
+```{r}
+superstore_cura %>% plot_histogram_plotly(
+    col_x = sales
+)
+```
+

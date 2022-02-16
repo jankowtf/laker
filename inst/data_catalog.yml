@@ -1,0 +1,36 @@
+default:
+  date_start: "2020-01-01"
+
+v1:
+  tableau_superstore:
+    v1:
+      global:
+        # path: "tableau_superstore/v1"
+        path: "Global Superstore.xls"
+        valid_since: "2021-02-26"
+        valid_until: null
+        columns_ref: ./travex_enriched/v1/global
+        columns: null
+      layer_01:
+        path: "Global Superstore.xls"
+      layer_02:
+        path: "tableau_superstore/v1"
+      layer_03: "tableau_superstore/v1"
+
+v2:
+    tableau_global_superstore:
+        layer_01:
+            tableau_global_superstore:
+                v1:
+                    file_name: "Tableau Global Superstore.xls"
+        layer_02:
+            tableau_global_superstore:
+                v1:
+                    file_name: "tableau_global_superstore.arrow"
+                    # file_name: "tableau_global_superstore"
+                    # The second way would be cleaner but currently clashes with
+                    # factory setup for the 'con_*' classes
+        layer_03:
+            tableau_global_superstore:
+                v1:
+                    file_name: "tableau_global_superstore.arrow"
