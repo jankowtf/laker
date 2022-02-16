@@ -14,12 +14,14 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
 Imports: 
+    arrow,
     assertthat,
     clix (>= 0.0.1.9003),
     confx (>= 0.0.0.9024),
     lifecycle,
     magrittr,
     pops (>= 0.0.0.9000),
+    snakecase,
     valid (>= 0.0.0.9004)
 Suggests: 
     testthat (>= 3.0.0)
