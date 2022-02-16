@@ -28,6 +28,7 @@ usethis::use_lifecycle()
 usethis::use_lifecycle_badge("experimental")
 usethis::use_readme_rmd()
 usethis::use_news_md()
+
 usethis::use_version("dev")
 
 usethis::use_build_ignore(
@@ -41,9 +42,13 @@ usethis::use_build_ignore(
 # Prod dependencies -------------------------------------------------------
 
 renv::install("rappster/confx")
+usethis::use_dev_package("confx", type = "Imports", remote = "rappster/confx")
 renv::install("rappster/valid", rebuild = TRUE)
+usethis::use_dev_package("valid", type = "Imports", remote = "rappster/valid")
 renv::install("rappster/clix", rebuild = TRUE)
+usethis::use_dev_package("clix", type = "Imports", remote = "rappster/clix")
 renv::install("rappster/pops", rebuild = TRUE)
+usethis::use_dev_package("pops", type = "Imports", remote = "rappster/pops")
 renv::install("dplyr")
 renv::install("readxl")
 renv::install("assertthat")
