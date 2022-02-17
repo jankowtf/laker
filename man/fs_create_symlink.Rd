@@ -4,18 +4,23 @@
 \alias{fs_create_symlink}
 \title{Create symlinc}
 \usage{
-fs_create_symlink(
-  original = "~/data/dev/",
-  symlink = "data/",
-  sub_dirs = FALSE
-)
+fs_create_symlink(original = "~/data/dev/", symlink = "data/", subdirs = FALSE)
 }
 \arguments{
-\item{sub_dirs}{}
+\item{subdirs}{}
 }
 \value{
 
 }
 \description{
 Create symlinc
+}
+\examples{
+\dontrun{
+fs_create_symlink(
+    original = "~/data/dev/",
+    symlink = "data/",
+    subdirs = TRUE
+)
+}
 }

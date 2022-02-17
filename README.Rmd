@@ -1,7 +1,7 @@
 ---
 output: github_document
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
     comment = "#>",
     fig.path = "man/figures/README-",
     out.width = "100%",
-    eval = FALSE
+    eval = TRUE
 )
 ```
 
@@ -52,6 +52,10 @@ Assuming that you have a local directory that should act as your "local data lak
 
 Mine is layered as follows
 
+```{r}
+library(laker)
+```
+
 ```{r data-layers}
 valid_data_layers(df = TRUE)
 ```
@@ -65,6 +69,11 @@ fs_create_symlink(
     subdirs = TRUE
 )
 ```
+
+### TODO-20220217-2346: Explain the current "dev convenience setting" to set the symlinks in at load time.
+
+This is simply for my own convenience while "developing the thing" and I'm sorry
+for any annoyances it may cause for others. I'll change that in the future.
 
 ## Ingest
 

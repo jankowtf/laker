@@ -12,7 +12,7 @@
 #'
 #' @param original
 #' @param symlink
-#' @param sub_dirs
+#' @param subdirs
 #'
 #' @return
 #' @export
@@ -28,7 +28,7 @@
 fs_create_symlink <- function(
     original = "~/data/dev/",
     symlink = "data/",
-    sub_dirs = FALSE
+    subdirs = FALSE
 ) {
     # command <- "ln -s ~/data/dbt-def-datalake/{original} ~/Code/upskill/ds4b.201/{symlink}" %>%
     #     stringr::str_glue()
@@ -41,7 +41,7 @@ fs_create_symlink <- function(
     # symlink %>% fs::path_dir() %>% clix::ask_dir_create()
     symlink %>% clix::ask_dir_create()
 
-    if (!sub_dirs) {
+    if (!subdirs) {
         command <- "ln -s {original} {symlink}" %>%
             stringr::str_glue()
     } else {

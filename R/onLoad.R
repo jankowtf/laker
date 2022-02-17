@@ -13,7 +13,6 @@
     fs_create_symlink(
         original = "~/data/dev",
         symlink = "data",
-        sub_dirs = TRUE
     )
 
     invisible(TRUE)
