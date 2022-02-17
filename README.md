@@ -138,7 +138,7 @@ layer_curate
 #> function(data, ...) {
 #>     UseMethod("layer_curate")
 #> }
-#> <bytecode: 0x106c50430>
+#> <bytecode: 0x1140508e0>
 #> <environment: namespace:laker>
 ```
 

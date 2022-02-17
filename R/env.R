@@ -65,6 +65,15 @@ env_data_catalog <- function(
     )
 }
 
+#' Env shorthand
+#'
+#' @param devops_env
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' env_data_catalog_version()
 env_data_catalog_version <- function(
     devops_env = Sys.getenv("LAKER_DEVOPS_ENV",
         pops::get_option("devops_env"))
