@@ -1,7 +1,7 @@
 Package: laker
 Type: Package
 Title: Local data lake framework
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: 
     person(given = "Janko",
            family = "Thyson",
@@ -18,9 +18,11 @@ Imports:
     assertthat,
     clix (>= 0.0.1.9003),
     confx (>= 0.0.0.9024),
+    dplyr,
     lifecycle,
     magrittr,
     pops (>= 0.0.0.9000),
+    readxl,
     snakecase,
     valid (>= 0.0.0.9004)
 Suggests: 

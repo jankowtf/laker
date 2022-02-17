@@ -46,6 +46,9 @@ layer_ingest <- function(
         # version = version,
         # constructor = constructor_internal
     )
+
+    # Return value
+    invisible(data)
 }
 
 # Curate ------------------------------------------------------------------

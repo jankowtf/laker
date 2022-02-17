@@ -45,6 +45,15 @@ env_data_lake <- function(...) {
         fs::path(dots)
 }
 
+#' Env shorthand
+#'
+#' @param devops_env
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' env_data_catalog()
 env_data_catalog <- function(
     devops_env = Sys.getenv("LAKER_DEVOPS_ENV",
         pops::get_option("devops_env"))

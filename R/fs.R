@@ -18,6 +18,13 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' fs_create_symlink(
+#'     original = "~/data/dev/",
+#'     symlink = "data/",
+#'     subdirs = TRUE
+#' )
+#' }
 fs_create_symlink <- function(
     original = "~/data/dev/",
     symlink = "data/",
