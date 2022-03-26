@@ -10,9 +10,10 @@
 # https://itectec.com/unixlinux/bash-create-symlink-overwrite-if-one-exists/
 #' Create symlinc
 #'
-#' @param original
-#' @param symlink
-#' @param subdirs
+#' @param original ([character]) Path to original directory to symlink.
+#' @param symlink ([character]) Path to directory to use as symlink.
+#' @param subdirs ([logical]) Link subdirectories of `original` into `symlink`
+#'   (`TRUE`) or link `original` itself into `symlink` (FALSE)?
 #'
 #' @return
 #' @export
@@ -21,14 +22,13 @@
 #' \dontrun{
 #' fs_create_symlink(
 #'     original = "~/data/dev/",
-#'     symlink = "data/",
-#'     subdirs = TRUE
+#'     symlink = "data/"
 #' )
 #' }
 fs_create_symlink <- function(
     original = "~/data/dev/",
     symlink = "data/",
-    subdirs = FALSE
+    subdirs = TRUE
 ) {
     # command <- "ln -s ~/data/dbt-def-datalake/{original} ~/Code/upskill/ds4b.201/{symlink}" %>%
     #     stringr::str_glue()

@@ -1,3 +1,8 @@
+# laker 0.0.0.9003 (2022-03-26)
+
+- Switched default of `subdirs` in `fs_create_symlink()`
+- Took `fs_create_symlink()` out of `onAttach()`
+
 # laker 0.0.0.9002
 
 Env, return value, README

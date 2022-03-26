@@ -79,8 +79,7 @@ You can create a symbol link with `[fs_create_symlink]`.
 ``` r
 fs_create_symlink(
     original = "~/data/dev/",
-    symlink = "data/",
-    subdirs = TRUE
+    symlink = "data/"
 )
 #> 
 #> ── Directory check ─────────────────────────────────────────────────────────────
@@ -88,11 +87,9 @@ fs_create_symlink(
 #> 
 #> There is nothing to do.
 #> 
-#> ✓ ln -s /Users/jankothyson/data/dev/layer_00 data/ln -s /Users/jankothyson/data/dev/layer_01 data/ln -s /Users/jankothyson/data/dev/layer_02 data/ln -s /Users/jankothyson/data/dev/layer_03 data/ln -s /Users/jankothyson/data/dev/layer_04 data/
+#> ✓ ln -s ~/data/dev/ data/
 #> ✓ Symlink created
 ```
-
-### TODO-20220217-2346: Explain the current “dev convenience setting” to set the symlinks in at load time.
 
 This is simply for my own convenience while “developing the thing” and
 I’m sorry for any annoyances it may cause for others. I’ll change that
@@ -138,7 +135,7 @@ layer_curate
 #> function(data, ...) {
 #>     UseMethod("layer_curate")
 #> }
-#> <bytecode: 0x1140508e0>
+#> <bytecode: 0x10b14dfe8>
 #> <environment: namespace:laker>
 ```
 

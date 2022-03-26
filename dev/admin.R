@@ -31,13 +31,11 @@ usethis::use_news_md()
 
 usethis::use_build_ignore(
     c(
-        "devops",
+        "dev",
         "inst/examples",
         "tests"
     )
 )
-
-usethis::use_version("dev")
 
 # Prod dependencies -------------------------------------------------------
 
@@ -68,3 +66,7 @@ usethis::use_test("classes_data")
 usethis::use_test("valid")
 usethis::use_test("data_catalog")
 usethis::use_test("layers")
+
+# Continuous dev ----------------------------------------------------------
+
+usethis::use_version("dev")

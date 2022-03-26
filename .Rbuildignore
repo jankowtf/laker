@@ -4,6 +4,6 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
-^devops$
+^dev$
 ^inst/examples$
 ^tests$

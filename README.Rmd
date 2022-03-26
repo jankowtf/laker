@@ -65,12 +65,9 @@ You can create a symbol link with `[fs_create_symlink]`.
 ```{r symlink}
 fs_create_symlink(
     original = "~/data/dev/",
-    symlink = "data/",
-    subdirs = TRUE
+    symlink = "data/"
 )
 ```
-
-### TODO-20220217-2346: Explain the current "dev convenience setting" to set the symlinks in at load time.
 
 This is simply for my own convenience while "developing the thing" and I'm sorry
 for any annoyances it may cause for others. I'll change that in the future.

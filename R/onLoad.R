@@ -9,11 +9,11 @@
         values = list("devops_env" = valid::valid_devops_envs("dev"))
     )
 
-    # Symlink for local data lake
-    fs_create_symlink(
-        original = "~/data/dev",
-        symlink = "data",
-    )
+    # # Symlink for local data lake
+    # fs_create_symlink(
+    #     original = "~/data/dev",
+    #     symlink = "data",
+    # )
 
     invisible(TRUE)
 }
