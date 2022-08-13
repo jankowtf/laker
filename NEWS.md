@@ -1,3 +1,12 @@
+# laker 0.0.0.9004 (2022-08-13)
+
+link_data_lake()
+
+- Added `link_data_lake()` as a user-friendly wrapper around `fs_create_symlink()`
+- Modified `fs_create_symlink()`: added argument `is_interactive` to enable non-interative execution
+
+----------
+
 # laker 0.0.0.9003 (2022-03-26)
 
 - Switched default of `subdirs` in `fs_create_symlink()`

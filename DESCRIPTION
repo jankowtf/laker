@@ -1,7 +1,7 @@
 Package: laker
 Type: Package
 Title: Local data lake framework
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: 
     person(given = "Janko",
            family = "Thyson",
@@ -16,7 +16,7 @@ RoxygenNote: 7.1.2
 Imports: 
     arrow,
     assertthat,
-    clix (>= 0.0.1.9003),
+    clix (>= 0.0.1.9007),
     confx (>= 0.0.0.9024),
     dplyr,
     lifecycle,

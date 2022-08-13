@@ -4,10 +4,22 @@
 \alias{fs_create_symlink}
 \title{Create symlinc}
 \usage{
-fs_create_symlink(original = "~/data/dev/", symlink = "data/", subdirs = FALSE)
+fs_create_symlink(
+  original = "~/data/dev/",
+  symlink = "datalake/",
+  subdirs = TRUE,
+  is_interactive = interactive()
+)
 }
 \arguments{
-\item{subdirs}{}
+\item{original}{(\link{character}) Path to original directory to symlink.}
+
+\item{symlink}{(\link{character}) Path to directory to use as symlink.}
+
+\item{subdirs}{(\link{logical}) Link subdirectories of \code{original} into \code{symlink}
+(\code{TRUE}) or link \code{original} itself into \code{symlink} (FALSE)?}
+
+\item{is_interactive}{[\link{logical}] Interqctive mode yes/no}
 }
 \value{
 
@@ -19,8 +31,7 @@ Create symlinc
 \dontrun{
 fs_create_symlink(
     original = "~/data/dev/",
-    symlink = "data/",
-    subdirs = TRUE
+    symlink = "datalake/"
 )
 }
 }

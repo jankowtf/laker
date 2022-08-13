@@ -47,14 +47,6 @@ Mine is layered as follows
 ``` r
 library(laker)
 #> 
-#> ── Directory check ─────────────────────────────────────────────────────────────
-#> Directory data already exists.
-#> 
-#> There is nothing to do.
-#> 
-#> ✓ ln -s ~/data/dev data
-#> ✓ Symlink created
-#> 
 #> Attaching package: 'laker'
 #> The following object is masked from 'package:utils':
 #> 
@@ -74,7 +66,7 @@ valid_data_layers(df = TRUE)
 #> 6 99    layer_99 sandbox
 ```
 
-You can create a symbol link with `[fs_create_symlink]`.
+You can create a symbolIC link with `[fs_create_symlink]`.
 
 ``` r
 fs_create_symlink(
@@ -85,15 +77,53 @@ fs_create_symlink(
 #> ── Directory check ─────────────────────────────────────────────────────────────
 #> Directory data/ already exists.
 #> 
-#> There is nothing to do.
+#> ✓ Removing existing subdirectories of data/
+#> ✓ rm -r data/layer_00
+#> ✓ rm -r data/layer_01
+#> ✓ rm -r data/layer_02
+#> ✓ rm -r data/layer_03
+#> ✓ rm -r data/layer_04
 #> 
-#> ✓ ln -s ~/data/dev/ data/
-#> ✓ Symlink created
+#> ── Creating symbolic link(s) ───────────────────────────────────────────────────
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_00 data/
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_01 data/
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_02 data/
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_03 data/
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_04 data/
+#> ✓ Symbolic link(s) created
 ```
 
 This is simply for my own convenience while “developing the thing” and
 I’m sorry for any annoyances it may cause for others. I’ll change that
 in the future.
+
+If the use case to create symbolic links is to “link to a data lake”
+then there is a more user-friendly wrapper around `fs_create_symlink()`
+
+``` r
+link_data_lake(
+    path_data_lake = "~/data/dev",
+    path = "datalake"
+)
+#> 
+#> ── Directory check ─────────────────────────────────────────────────────────────
+#> Directory datalake already exists.
+#> 
+#> ✓ Removing existing subdirectories of datalake
+#> ✓ rm -r datalake/layer_00
+#> ✓ rm -r datalake/layer_01
+#> ✓ rm -r datalake/layer_02
+#> ✓ rm -r datalake/layer_03
+#> ✓ rm -r datalake/layer_04
+#> 
+#> ── Creating symbolic link(s) ───────────────────────────────────────────────────
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_00 datalake
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_01 datalake
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_02 datalake
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_03 datalake
+#> ✓ ln -s /Users/jankothyson/data/dev/layer_04 datalake
+#> ✓ Symbolic link(s) created
+```
 
 ## Ingest
 
@@ -135,7 +165,7 @@ layer_curate
 #> function(data, ...) {
 #>     UseMethod("layer_curate")
 #> }
-#> <bytecode: 0x10b14dfe8>
+#> <bytecode: 0x10506e158>
 #> <environment: namespace:laker>
 ```
 

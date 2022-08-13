@@ -1,7 +1,7 @@
 ---
 output: github_document
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -60,7 +60,7 @@ library(laker)
 valid_data_layers(df = TRUE)
 ```
 
-You can create a symbol link with `[fs_create_symlink]`.
+You can create a symbolIC link with `[fs_create_symlink]`.
 
 ```{r symlink}
 fs_create_symlink(
@@ -71,6 +71,15 @@ fs_create_symlink(
 
 This is simply for my own convenience while "developing the thing" and I'm sorry
 for any annoyances it may cause for others. I'll change that in the future.
+
+If the use case to create symbolic links is to "link to a data lake" then there is a more user-friendly wrapper around `fs_create_symlink()`
+
+```{r eval=TRUE}
+link_data_lake(
+    path_data_lake = "~/data/dev",
+    path = "datalake"
+)
+```
 
 ## Ingest
 
